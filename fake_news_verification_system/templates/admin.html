@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<h1>Admin Dashboard</h1><section class="panel"><h2>Add verified news</h2><form method="post">
+<label>Headline</label><input name="headline" required><label>Full article / details</label><textarea name="article" rows="5" required></textarea>
+<label>Source name</label><input name="source" placeholder="Example: Official department website" required>
+<label>Source URL (optional)</label><input type="url" name="source_url" placeholder="https://..."><button class="btn">Add News</button></form></section>
+<section class="panel"><h2>Admin records</h2>{% for item in news %}<article class="news"><h3>{{ item['headline'] }}</h3><p>{{ item['source'] }} {% if item['source_url'] %}— <a href="{{ item['source_url'] }}" target="_blank" rel="noopener">Open source</a>{% endif %}</p>
+<form method="post" action="{{ url_for('delete_news', news_id=item['id']) }}"><button class="btn danger">Delete</button></form></article>{% else %}<p>No records added yet.</p>{% endfor %}</section>{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}<section class="panel"><h1>Verify a news item</h1><form method="post"><label>Paste headline or article</label><textarea name="news_text" rows="7" required placeholder="Paste the news text here..."></textarea><button class="btn">Verify News</button></form></section>
+{% if result %}<section class="panel result"><h2>{{ result.status }}</h2><p>{{ result.message }}</p>
+{% if result.confidence is not none %}<p>Model confidence: {{ result.confidence }}% (not a truth score)</p>{% endif %}
+{% if result.source %}<p>Admin record source: <b>{{ result.source }}</b>{% if result.source_url %} — <a href="{{ result.source_url }}" target="_blank" rel="noopener">View source</a>{% endif %}</p>{% endif %}
+</section>{% endif %}{% endblock %}

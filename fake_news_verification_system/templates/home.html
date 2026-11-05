@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><h1>Fake News Verification System</h1><p>Check a news headline or article using administrator-verified records and a Machine Learning text classifier.</p>
+<a class="btn" href="{{ url_for('register') }}">Get Started</a> <a class="btn secondary" href="{{ url_for('login') }}">Login</a></section>
+<section class="panel"><h2>How it works</h2><ol><li>Admin adds news checked against reliable sources.</li><li>User pastes a headline or article.</li><li>The system checks for a verified-record match.</li><li>If no match exists, the ML model provides a prediction.</li></ol>
+<p><b>Important:</b> ML prediction is not proof of truth. “REAL” predictions are shown as Unverified unless an admin record matches.</p></section>{% endblock %}
